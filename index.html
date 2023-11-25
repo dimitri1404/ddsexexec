@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: #5a0066; /* Colore di sfondo */
+      font-family: Arial, sans-serif;
+    }
+
+    .chat-container {
+      max-width: 400px;
+      margin: 50px auto;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .chat-header {
+      background-color: #62008c; /* Colore viola per l'intestazione */
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .chat-body {
+      padding: 10px;
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .message {
+      margin-bottom: 10px;
+    }
+
+    .user-message {
+      background-color: #390052; /* Colore viola per i messaggi dell'utente */
+      color: #fff;
+      padding: 8px;
+      border-radius: 5px;
+    }
+
+    .other-message {
+      background-color: #9404d1; /* Colore grigio per i messaggi degli altri */
+      padding: 8px;
+      border-radius: 5px;
+    }
+
+    .input-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      border-top: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    .input-container input {
+      flex: 1;
+      padding: 8px;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .input-container button {
+      padding: 8px;
+      border: none;
+      background-color: #6a5acd;
+      color: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+  <title>Little Helper</title>
+</head>
+<body>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6562279bda19b3621790b89c/1hg3mle8u';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+  <div class="chat-container">
+    <div class="chat-header">Little Helper</div>
+    <div class="chat-body" id="chatBody">
+      <!-- Messaggi andranno qui -->
+    </div>
+    <div class="input-container">
+      <input type="text" id="messageInput" placeholder="Inserisci il tuo messaggio">
+      <button onclick="sendMessage()">Invia</button>
+    </div>
+  </div>
+
+  <script>
+    function sendMessage() {
+      var messageInput = document.getElementById('messageInput');
+      var chatBody = document.getElementById('chatBody');
+
+      if (messageInput.value.trim() !== '') {
+        var messageDiv = document.createElement('div');
+        messageDiv.className = 'message user-message';
+        messageDiv.textContent = messageInput.value;
+        chatBody.appendChild(messageDiv);
+
+        // Aggiungi qui la logica per ricevere una risposta, se necessario.
+
+        messageInput.value = '';
+        chatBody.scrollTop = chatBody.scrollHeight; // Scorrimento automatico verso il basso
+      }
+    }
+  </script>
+
+</body>
+</html>
